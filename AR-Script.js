@@ -54,6 +54,7 @@ function init() {
     var map = new THREE.TextureLoader().load( "sprite.png" );
     var material = new THREE.SpriteMaterial( { map: map, color: 0xffffff } );
     var sprite = new THREE.Sprite( material );
+    sprite.scale.set(500,562,1);
     scene.add( sprite );
 
     //
