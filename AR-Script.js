@@ -35,21 +35,26 @@ function init() {
 
     //
 
-    var geometry = new THREE.CylinderBufferGeometry( 0, 0.05, 0.2, 32 ).rotateX( Math.PI / 2 );
+    // var geometry = new THREE.CylinderBufferGeometry( 0, 0.05, 0.2, 32 ).rotateX( Math.PI / 2 );
 
-    function onSelect() {
+    // function onSelect() {
 
-        var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
-        var mesh = new THREE.Mesh( geometry, material );
-        mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
-        mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-        scene.add( mesh );
+    //     var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+    //     var mesh = new THREE.Mesh( geometry, material );
+    //     mesh.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
+    //     mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
+    //     scene.add( mesh );
 
-    }
+    // }
 
-    controller = renderer.xr.getController( 0 );
-    controller.addEventListener( 'select', onSelect );
-    scene.add( controller );
+    // controller = renderer.xr.getController( 0 );
+    // controller.addEventListener( 'select', onSelect );
+    // scene.add( controller );
+
+    var map = new THREE.TextureLoader().load( "sprite.png" );
+    var material = new THREE.SpriteMaterial( { map: map, color: 0xffffff } );
+    var sprite = new THREE.Sprite( material );
+    scene.add( sprite );
 
     //
 
