@@ -17,21 +17,17 @@ export default class MainController{
                 
                 if(!(data[index].cars[j].color in this.graphdata)) {
 
-                        this.graphdata[ data[index].cars[j].color ] = 0;
+                        this.graphdata[ data[index].cars[j].color ] = 1;
 
                 }else{
-                    Object.keys(this.graphdata).forEach(key => {
-                        this.graphdata[key] += 1;
-                      });
-                    // this.graphdata[ data[index].cars[j].color].value += 1;
+                    
+                        this.graphdata[data[index].cars[j].color] += 1;
+                      
                 }
 
             }
         }
         console.log(this.graphdata)
-        // for(item in this.graphdata){
-        //     console.log(this.graphdata[item])
-        // }
     }
 
 
