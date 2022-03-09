@@ -54,6 +54,7 @@ function init() {
 
     scene.add(cubeGroup);
 
+
     //
 
     window.addEventListener( 'resize', onWindowResize, false );
