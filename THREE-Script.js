@@ -4,6 +4,8 @@ import MainController from "./Controller/MainController.js";
 
 // call controller.readJson to get dataset
 var controller = new MainController();
+controller.readJson();
+
 
 //TEMP_DATA
 const data = [2,10,5,6,3,8,7]
@@ -26,8 +28,13 @@ const cubeWidth = 1;
 const cubeDepth = 1;
 let position = -4;
 
-data.forEach(makeCube)
+console.log(controller.graphdata)
 
+
+for (const [key, value] of Object.entries(controller.graphdata)) {
+    makeCube(value)
+  }
+  
 scene.add(cubeGroup);
 camera.position.set(0,5,10);
 //ANIMATION
@@ -38,10 +45,10 @@ function animate() {
 
 animate();
 
-function makeCube(item, index){
-    var geometry = new THREE.BoxGeometry(cubeWidth, item, cubeDepth);
+function makeCube(amount){
+    var geometry = new THREE.BoxGeometry(cubeWidth, amount, cubeDepth);
     var cube = new THREE.Mesh(geometry, material);
-    cube.position.set(position, 0+(item/2), 0);
+    cube.position.set(position, 0+(amount/2), 0);
     console.log(cube.position)
     position += 2;
     cubeGroup.add(cube);
