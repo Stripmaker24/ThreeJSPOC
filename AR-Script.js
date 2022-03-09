@@ -53,6 +53,7 @@ function init() {
     }
 
     scene.add(cubeGroup);
+    camera.position.set(0,5,10);
 
     //
 
