@@ -21,7 +21,6 @@ function init() {
 
 
     // call this to get JSON data from maincontroller
-    controller.readJson()
 
 
     container = document.createElement( 'div' );
@@ -46,10 +45,15 @@ function init() {
     //
 
     document.body.appendChild( ARButton.createButton( renderer ) );
+    
+    controller.readJson()
 
     //
     for (const [key, value] of Object.entries(controller.graphdata)) {
-        makeCube(value)
+        makeCube(value);
+        var test = document.createElement('p');
+        test.innerHTML = key;
+        document.body.appendChild(test);
     }
 
     scene.add(cubeGroup);

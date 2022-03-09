@@ -8,7 +8,7 @@ controller.readJson();
 
 
 //TEMP_DATA
-const data = [2,10,5,6,3,8,7]
+//const data = [2,10,5,6,3,8,7]
 
 
 
