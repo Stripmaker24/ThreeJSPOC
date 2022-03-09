@@ -4,6 +4,11 @@ import { ARButton } from 'https://unpkg.com/three/examples/jsm/webxr/ARButton.js
 var container;
 var camera, scene, renderer;
 var controller;
+const material = new THREE.MeshBasicMaterial({color:0xC0C0C0});
+const cubeWidth = 1;
+const cubeDepth = 1;
+let position = -4;
+const cubeGroup = new THREE.Group();
 
 init();
 animate();
@@ -35,11 +40,6 @@ function init() {
 
     //
     const data = [2,10,5,6,3,8,7]
-    const cubeGroup = new THREE.Group();
-    const material = new THREE.MeshBasicMaterial({color:0xC0C0C0});
-    const cubeWidth = 1;
-    const cubeDepth = 1;
-    let position = -4;
 
     data.forEach(makeCube)
 
