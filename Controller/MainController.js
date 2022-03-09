@@ -7,8 +7,8 @@ export default class MainController{
     readJson(){
         let data = cars;
         
-        for (let i in data) {
-            for (let j = 0; j < i.cars.length; j++) {
+        for (let index = 0; index < data.length; index++) {
+            for (let j = 0; j < data[index].cars.length; j++) {
                 
                 if(!(data[index].cars[j].color in this.graphdata)) {
 
@@ -21,4 +21,5 @@ export default class MainController{
         }
         return this.graphdata;
     }
+
 }
