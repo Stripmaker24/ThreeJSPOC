@@ -15,7 +15,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     light.position.set( 0.5, 1, 0.25 );
