@@ -1,8 +1,14 @@
 //IMPORTS
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import MainController from "./Controller/MainController.js";
+
+// call controller.readJson to get dataset
+var controller = new MainController();
 
 //TEMP_DATA
 const data = [2,10,5,6,3,8,7]
+
+
 
 //SET_UP
 const scene = new THREE.Scene();
