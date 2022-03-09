@@ -21,7 +21,7 @@ document.body.appendChild( renderer.domElement );
 
 //CUBES
 const cubeGroup = new THREE.Group();
-const material = new THREE.MeshBasicMaterial({color:0xC0C0C0});
+
 const cubeWidth = 1;
 const cubeDepth = 1;
 let position = -4;
@@ -39,6 +39,8 @@ function animate() {
 animate();
 
 function makeCube(item, index){
+    const material = new THREE.MeshBasicMaterial();
+    material.color.setHex("0x" + Math.floor(Math.random()*16777215).toString(16))
     var geometry = new THREE.BoxGeometry(cubeWidth, item, cubeDepth);
     var cube = new THREE.Mesh(geometry, material);
     cube.position.set(position, 0+(item/2), 0);
