@@ -4,10 +4,6 @@ export default class MainController{
 
     graphdata = {};
 
-    constructor(){
-      
-    }
-
     readJson(){
         let data = cars;
         
@@ -25,7 +21,4 @@ export default class MainController{
         }
         return this.graphdata;
     }
-
-
-
 }
