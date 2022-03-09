@@ -1,0 +1,49 @@
+[
+    {
+      "car_id": "62289ddd5d9d5c2de007cce5",
+      "manifacturer": "Audi",
+      "cars": [
+        {
+          "id": 0,
+          "model": "Courtney Herring",
+          "color": "red"
+        },
+        {
+          "id": 1,
+          "model": "Ethel Stewart",
+          "color": "blue"
+        },
+        {
+          "id": 2,
+          "model": "Deanne Walter",
+          "color": "red"
+        }
+      ]
+    },
+    {
+      "car_id": "62289ddd8e966385eddb901f",
+      "manifacturer": "Porche",
+      "cars": [
+        {
+          "id": 0,
+          "model": "Corine Fox",
+          "color": "white"
+        },
+        {
+            "id": 3,
+            "model": "Corine Box",
+            "color": "black"
+          },
+        {
+          "id": 1,
+          "model": "Rhonda Gibson",
+          "color": "black"
+        },
+        {
+          "id": 2,
+          "model": "Amalia Hobbs",
+          "color": "red"
+        }
+      ]
+    }
+  ]

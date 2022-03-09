@@ -1,6 +1,8 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { ARButton } from 'https://unpkg.com/three/examples/jsm/webxr/ARButton.js';
 
+import MainController from "./Controller/MainController.js";
+
 var container;
 var camera, scene, renderer;
 var controller;
@@ -14,6 +16,14 @@ init();
 animate();
 
 function init() {
+
+    controller = new MainController();
+
+
+    // call this to get JSON data from maincontroller
+    console.log(controller.readJson());
+
+
 
     container = document.createElement( 'div' );
     document.body.appendChild( container );
