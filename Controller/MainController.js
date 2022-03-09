@@ -3,10 +3,9 @@ import cars from "../Data/Cars.json" assert { type: "json" };
 export default class MainController{
 
     graphdata = {};
-    counter = 0;
 
     constructor(){
-        this.readJson();
+      
     }
 
     readJson(){
@@ -18,16 +17,13 @@ export default class MainController{
                 if(!(data[index].cars[j].color in this.graphdata)) {
 
                         this.graphdata[ data[index].cars[j].color ] = 1;
-
                 }else{
-                    
                         this.graphdata[data[index].cars[j].color] += 1;
-                      
                 }
 
             }
         }
-        console.log(this.graphdata)
+        return this.graphdata;
     }
 
 

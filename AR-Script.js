@@ -11,9 +11,12 @@ init();
 animate();
 
 function init() {
-    
+
     controller = new MainController();
-    
+
+
+    // call this to get JSON data from maincontroller
+    console.log(controller.readJson());
 
 
 
