@@ -6,6 +6,11 @@ import MainController from "./Controller/MainController.js";
 var container;
 var camera, scene, renderer;
 var controller;
+const material = new THREE.MeshBasicMaterial({color:0xC0C0C0});
+const cubeWidth = 1;
+const cubeDepth = 1;
+let position = -4;
+const cubeGroup = new THREE.Group();
 
 init();
 animate();
@@ -25,7 +30,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     light.position.set( 0.5, 1, 0.25 );
@@ -44,12 +49,11 @@ function init() {
     document.body.appendChild( ARButton.createButton( renderer ) );
 
     //
+    const data = [2,10,5,6,3,8,7]
 
-    const map = new THREE.TextureLoader().load( 'sprite.png' );
-    const material = new THREE.SpriteMaterial( { map: map });
-    
-    const sprite = new THREE.Sprite( material );
-    scene.add( sprite );
+    data.forEach(makeCube)
+
+    scene.add(cubeGroup);
 
     //
 
@@ -72,6 +76,15 @@ function animate() {
 
     renderer.setAnimationLoop( render );
 
+}
+
+function makeCube(item, index){
+    var geometry = new THREE.BoxGeometry(cubeWidth, item, cubeDepth);
+    var cube = new THREE.Mesh(geometry, material);
+    cube.position.set(position, 0+(item/2), 0);
+    console.log(cube.position)
+    position += 2;
+    cubeGroup.add(cube);
 }
 
 function render() {
