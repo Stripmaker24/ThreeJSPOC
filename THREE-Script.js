@@ -10,7 +10,7 @@ const data = [2,10,5,6,3,8,7]
 
 //SET_UP
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 100, window.innerWidth  / window.innerHeight, .1, 1000 );
 
 //RENDERS
 const renderer = new THREE.WebGLRenderer();
@@ -30,31 +30,27 @@ function generateBarChart(){
 
 	let counter = 0;
 	data.forEach((e) => {
-		makeCube(e);
 		counter++;
+		makeCube(e, counter);
 	})
 
 	//SIDELINES left
 	const terial = new THREE.MeshBasicMaterial();
-	var box = new THREE.BoxGeometry(0, (counter * 1.5), 1);
+	var box = new THREE.BoxGeometry(0, 13, 1); // moet hardcoded of goed geintergreerd met de rest van de grafiek. Voor nu duurt het iets te lang om te fixen.
 	var sidetwo = new THREE.Mesh(box, terial);
-	sidetwo.position.set(-5.5, 5.2, 0);
+	sidetwo.position.set(.1, 6.5, .1);
 	cubeGroup.add(sidetwo);
 
 	//SIDELINES right
 	const mat = new THREE.MeshBasicMaterial();
-	var bla = new THREE.BoxGeometry((counter * 2), 0.1, 1);
+	var bla = new THREE.BoxGeometry(counter*1.2, 0.1, 1);// moet hardcoded of goed geintergreerd met de rest van de grafiek. Voor nu duurt het iets te lang om te fixen.
 	var sideone = new THREE.Mesh(bla, mat);
-	sideone.position.set(1.5, 0, 0);
+	sideone.position.set(counter/1.7, 0, 0); // moet hardcoded of goed geintergreerd met de rest van de grafiek. Voor nu duurt het iets te lang om te fixen.
 	cubeGroup.add(sideone);
-
-	
-	
-
 }
 
 scene.add(cubeGroup);
-camera.position.set(0,5,10);
+camera.position.set(5,5,10);
 //ANIMATION
 function animate() {
     requestAnimationFrame( animate );
@@ -63,13 +59,15 @@ function animate() {
 
 animate();
 
-function makeCube(item, index){
+function makeCube(item, counter){
 	const material = new THREE.MeshBasicMaterial();
 	material.color.setHex("0x" + Math.floor(Math.random()*16777215).toString(16))
     var geometry = new THREE.BoxGeometry(cubeWidth, item, cubeDepth);
     var cube = new THREE.Mesh(geometry, material);
-    cube.position.set(position, 0.1+(item/2), 0);
-    console.log(cube.position)
+
+
+    cube.position.set(counter, 0.1+(item/2), 0);
+
     position += 2;
     cubeGroup.add(cube);
 }
