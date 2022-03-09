@@ -1,20 +1,19 @@
-import cars from "../Data/Cars.json" assert { type: "json" };
+import data from "./jsonHelper.js"
 
 export default class MainController{
-
     graphdata = {};
 
     readJson(){
-        let data = cars;
+        let newData = data;
         
-        for (let index = 0; index < data.length; index++) {
-            for (let j = 0; j < data[index].cars.length; j++) {
+        for (let index = 0; index < newData.length; index++) {
+            for (let j = 0; j < newData[index].cars.length; j++) {
                 
-                if(!(data[index].cars[j].color in this.graphdata)) {
+                if(!(newData[index].cars[j].color in this.graphdata)) {
 
-                        this.graphdata[ data[index].cars[j].color ] = 1;
+                        this.graphdata[ newData[index].cars[j].color ] = 1;
                 }else{
-                        this.graphdata[data[index].cars[j].color] += 1;
+                        this.graphdata[newData[index].cars[j].color] += 1;
                 }
 
             }
